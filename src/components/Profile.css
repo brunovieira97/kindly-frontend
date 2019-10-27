@@ -1,0 +1,27 @@
+.Profile {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+  border: 1px solid #9DC3E5;
+}
+ 
+.Profile img{
+  position: absolute;
+  width: 100%;
+  height: auto;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+
+
+@media screen and (max-width: 600px) {
+    .Profile{
+        width: 10px;
+        height: 10px;
+    }
+}
