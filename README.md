@@ -1,4 +1,4 @@
-# Kindly Front End
+## Kindly Front End
 
 ````
 npm install
