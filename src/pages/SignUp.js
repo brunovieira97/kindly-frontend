@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
-import {NavLink} from 'react-router-dom'
-import './SignUp.css'
+import {NavLink, Redirect, withRouter} from 'react-router-dom'
 import logo from '../assets/logo.png';
+import './SignUp.css'
 
 class SignUp extends Component{
     constructor(props) {
         super(props)
     
         this.state = {
-             username:'',
+             firstName:'',
+             lastName:'',
              password:'',
              email:'',
-             error: ""
+             cpf:'',
+             address:{},
+             nextPage: false,
+             error: ''
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSignUp = this.handleSignUp.bind(this)
@@ -23,25 +27,52 @@ class SignUp extends Component{
 
     handleSignUp(evt){
         evt.preventDefault();
-        const { username, email, password } = this.state;
-        if (!username || !email || !password) {
+        const {firstName, lastName, email, password, cpf } = this.state;
+        if ( !firstName || !lastName || !email || !password || !cpf) {
           this.setState({ error: "Preencha todos os dados para se cadastrar" });
-        } else {
-            //api...
+        }else{
+            this.setState({nextPage:true});
         }
-      };
+    }
 
     render() {
         return (
             <div className="SignUp">
                 <form onSubmit={this.handleSignUp} className="SignUp-form">
+                    {this.state.nextPage && <Redirect to={{
+                        pathname: '/signUpDetails',
+                        state: this.state
+                    }} />}
                     <img src={logo} alt="Logo Kindly"></img>
                     {this.state.error && <p>{this.state.error}</p>}
                     <input type='text' 
-                        id='username' 
-                        name='username' 
-                        placeholder="Nome de usuário"
-                        value={this.state.username} 
+                        id='firstName' 
+                        name='firstName' 
+                        placeholder="Nome"
+                        value={this.state.firstName} 
+                        onChange={this.handleChange}>
+                    </input>
+                    <input type='text' 
+                        id='lastName' 
+                        name='lastName' 
+                        placeholder="Sobrenome"
+                        value={this.state.lastName} 
+                        onChange={this.handleChange}>
+                    </input>
+                    <input type='text' 
+                        id='cpf' 
+                        name='cpf' 
+                        placeholder="CPF"
+                        maxLength="11"
+                        value={this.state.cpf} 
+                        onChange={this.handleChange}
+                        >
+                    </input>
+                    <input type='text' 
+                        id='email' 
+                        name='email' 
+                        placeholder="E-mail"
+                        value={this.state.email} 
                         onChange={this.handleChange}>
                     </input>
                     <input type='password' 
@@ -49,13 +80,6 @@ class SignUp extends Component{
                         name='password' 
                         placeholder="Senha"
                         value={this.state.password} 
-                        onChange={this.handleChange}>
-                    </input>
-                    <input type='text' 
-                        id='email' 
-                        name='email' 
-                        placeholder="E-mail"
-                        value={this.state.email} 
                         onChange={this.handleChange}>
                     </input>
                     <button type="submit">Cadastrar</button>
@@ -68,4 +92,4 @@ class SignUp extends Component{
 
 }
 
-export default SignUp;
+export default withRouter(SignUp);

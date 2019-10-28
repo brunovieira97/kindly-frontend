@@ -1,5 +1,4 @@
 import React from 'react';
-import TopMenu from './components/TopMenu'
 import Routes from './routes'
 import { BrowserRouter } from "react-router-dom";
 import './App.css';
