@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Redirect, withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import axios from 'axios'
 import api from '../services/api';
 import logo from '../assets/logo.png';
@@ -113,7 +113,7 @@ class SignUpDetails extends Component{
                     <input type='text' 
                         id='uf' 
                         name='uf' 
-                        placeholder="uf"
+                        placeholder="UF"
                         value={this.state.uf} 
                         disabled={true}
                         onChange={this.handleChange}>

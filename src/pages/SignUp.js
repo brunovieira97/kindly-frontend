@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {NavLink, Redirect, withRouter} from 'react-router-dom'
+import {NavLink, withRouter} from 'react-router-dom'
 import logo from '../assets/logo.png';
 import './SignUp.css'
 
@@ -14,7 +14,6 @@ class SignUp extends Component{
              email:'',
              cpf:'',
              address:{},
-             nextPage: false,
              error: ''
         }
         this.handleChange = this.handleChange.bind(this)
@@ -31,7 +30,7 @@ class SignUp extends Component{
         if ( !firstName || !lastName || !email || !password || !cpf) {
           this.setState({ error: "Preencha todos os dados para se cadastrar" });
         }else{
-            this.setState({nextPage:true});
+            this.props.history.push({pathname:'/signUpDetails',state:this.state});
         }
     }
 
@@ -39,10 +38,6 @@ class SignUp extends Component{
         return (
             <div className="SignUp">
                 <form onSubmit={this.handleSignUp} className="SignUp-form">
-                    {this.state.nextPage && <Redirect to={{
-                        pathname: '/signUpDetails',
-                        state: this.state
-                    }} />}
                     <img src={logo} alt="Logo Kindly"></img>
                     {this.state.error && <p>{this.state.error}</p>}
                     <input type='text' 
