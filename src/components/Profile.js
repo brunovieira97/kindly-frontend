@@ -3,21 +3,21 @@ import './Profile.css'
 import picture from '../assets/bob.png';
 
 class Profile extends Component {
-    constructor(props) {
-        super(props)
+  constructor(props) {
+    super(props)
 
-        this.state = {
+    this.state = {
 
-        }
     }
+  }
 
-    render() {
-        return (
-            <div className="Profile">
-                <img src={picture} alt="Bob Ross"></img>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="Profile">
+        <img src={picture} alt="Bob Ross"></img>
+      </div>
+    )
+  }
 
 }
 
