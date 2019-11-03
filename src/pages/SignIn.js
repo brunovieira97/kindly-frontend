@@ -26,8 +26,6 @@ class SignIn extends Component {
     const { username, password } = this.state;
     if (!username || !password) {
       this.setState({ error: "Preencha usuário e senha para continuar!" });
-    } else {
-      //api...
     }
   }
 

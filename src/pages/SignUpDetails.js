@@ -71,10 +71,11 @@ class SignUpDetails extends Component {
         <form onSubmit={this.handleSignUp} className="SignUpDetails-form">
           <img src={logo} alt="Logo Kindly"></img>
           {this.state.error && <p>{this.state.error}</p>}
-          <input type='text'
+          <input type='number'
             id='postalCode'
             name='postalCode'
             placeholder="CEP"
+            maxLength="8"
             value={this.state.postalCode}
             onBlur={this.handleAddress}
             onChange={this.handleChange}>

@@ -6,23 +6,124 @@
     height: 100vh;
 }
 
-.NewInstitution-form{
-    background: #fff;
-    padding: 20px;
-    display: flex;
+  .NewInstitution-form input{
     flex-direction: column;
-    align-items: center;
-}
-
-.NewInstitution-form input{
-    display: flex;
     height: 50px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    margin-left: 15px;
     padding: 0 20px;
     color:black;
     font-size: 15px;
-    width: 100%;
+    width: 30%;
     border: 1px solid #ddd;
 }
 
+.NewInstitution-form-name input{
+    display: inline-block;
+    height: 50px;
+    width: 450px;
+}
+
+.NewInstitution-form-text-area{
+    width: 70%;
+    display:flex;
+    flex-direction: column;
+}
+
+.NewInstitution-form textarea{
+    padding: 5px;
+    border-radius:10px;
+    border: 1px solid #ddd;
+    margin-left: 16px;
+    margin-bottom: 25px;
+    outline: none;
+    resize: none;
+    flex:1;
+}
+
+.NewInstitution-form p {
+    color: #ff3333;
+    margin-bottom: 15px;
+    border: 1px solid #ff3333;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+.NewInstitution-form button {
+    float: right;
+    color: #fff;
+    font-size: 16px;
+    background: #9DC3E5;
+    height: 56px;
+    border: 0;
+    border-radius: 5px;
+    width: 20%;
+}
+
+.NewInstitution-form a {
+    font-size: 16;
+    font-weight: bold;
+    color: #999;
+    text-decoration: none;
+  }
+
+.NewInstitution  *{
+    box-sizing: border-box;
+} 
+
+@media screen and (max-width: 600px) {
+    .NewInstitution{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin-top: 80px;
+    }
+
+    .NewInstitution-form input{
+        display: flex;
+        width: 40%;
+    }
+
+    .NewInstitution-form-name{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .NewInstitution-form-name input{
+        width: 40%;
+    }
+    
+    .NewInstitution-form-details{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .NewInstitution-form-details input{
+        width: 40%;
+    }
+
+    .NewInstitution-form{
+        background: #fff;    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .NewInstitution-form button {
+        width: 40%;
+    }
+
+    .NewInstitution-form-text-area{
+        width: 42%;
+        display:flex;
+        flex-direction: column;
+    }
+}
 
