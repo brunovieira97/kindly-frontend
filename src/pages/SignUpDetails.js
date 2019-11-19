@@ -56,10 +56,9 @@ class SignUpDetails extends Component {
       this.setState({ error: "Preencha todos os dados para se cadastrar" });
     } else {
       try {
-        await api.post("/user", user);
-        this.props.history.push("/");
+        await api.post("/signup", user);
+        this.props.history.push("/signIn");
       } catch (e) {
-        console.log(e);
         this.setState({ error: 'Ocorreu um erro ao cadastrar sua conta.' });
       }
     }

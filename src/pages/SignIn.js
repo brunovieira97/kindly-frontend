@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import './SignIn.css'
 import logo from '../assets/logo.png';
+import { login } from "../services/auth";
+import api from '../services/api';
 
 class SignIn extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      username: '',
+      email: '',
       password: '',
       error: ''
     }
@@ -21,11 +23,22 @@ class SignIn extends Component {
     this.setState({ [evt.target.name]: evt.target.value })
   }
 
-  handleSignIn(evt) {
+  async handleSignIn(evt) {
     evt.preventDefault();
-    const { username, password } = this.state;
-    if (!username || !password) {
+    const { email, password } = this.state;
+    if (!email || !password) {
       this.setState({ error: "Preencha usuário e senha para continuar!" });
+    } else {
+      try {
+        const response = await api.post("/signin", { email, password });
+        login(response.data.token);
+        this.props.history.push("/");
+      } catch (err) {
+        this.setState({
+          error:
+            "Houve um problema com o login, verifique suas credenciais."
+        });
+      }
     }
   }
 
@@ -36,10 +49,10 @@ class SignIn extends Component {
           <img src={logo} alt="Logo Kindly"></img>
           {this.state.error && <p>{this.state.error}</p>}
           <input type='text'
-            id='username'
-            name='username'
+            id='email'
+            name='email'
             placeholder="Nome de usuário"
-            value={this.state.username}
+            value={this.state.email}
             onChange={this.handleChange}>
           </input>
           <input type='password'
