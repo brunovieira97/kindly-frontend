@@ -1,9 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 import { getToken } from "./auth";
 
 const api = axios.create({
-  //baseURL: "https://kindly-backend.herokuapp.com"
-  baseURL: 'https://kindly-backend-pr-60.herokuapp.com'
+  baseURL: "https://kindly-backend.herokuapp.com"
 });
 
 api.interceptors.request.use(async config => {
