@@ -5,6 +5,7 @@ import SignUp from "./pages/SignUp";
 import SignUpDetails from "./pages/SignUpDetails";
 import SignIn from "./pages/SignIn";
 import NewInstitution from "./pages/NewInstitution";
+import ManageInstitution from "./pages/ManageInstitution";
 
 const Routes = withRouter(({ location }) => (
   <div>
@@ -20,6 +21,11 @@ const Routes = withRouter(({ location }) => (
         exact
         path="/newInstitution"
         component={() => <NewInstitution />}
+      />
+      <Route
+        exact
+        path="/manageInstitution"
+        component={() => <ManageInstitution />}
       />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
