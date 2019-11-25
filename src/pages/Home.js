@@ -43,7 +43,7 @@ const Home = () => {
         <ul>
           {institutions.map((inst, i) => (
             <li key={i}>
-              <InstitutionCard item={inst} picture={i} />
+              <InstitutionCard item={inst} pic={i + 1} />
             </li>
           ))}
         </ul>

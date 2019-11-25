@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import TopMenu from "./components/TopMenu";
+import Footer from "./components/Footer";
 import SignUp from "./pages/SignUp";
 import SignUpDetails from "./pages/SignUpDetails";
 import SignIn from "./pages/SignIn";
@@ -30,6 +31,9 @@ const Routes = withRouter(({ location }) => (
       />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
+    {location.pathname !== "/signup" &&
+      location.pathname !== "/signIn" &&
+      location.pathname !== "/signUpDetails" && <Footer />}
   </div>
 ));
 
