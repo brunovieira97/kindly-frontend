@@ -14,18 +14,21 @@ const WishListForm = ({ addItem }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="donative">Donativo</label>
         <input
           type="text"
           value={donative}
           name="donative"
           onChange={evt => setDonative(evt.target.value)}
         ></input>
+        <label htmlFor="quantity">Quantidade</label>
         <input
           type="number"
           value={quantity}
           name="quantity"
           onChange={evt => setQuantity(evt.target.value)}
         ></input>
+        <label htmlFor="priority">Prioridade</label>
         <input
           type="number"
           value={priority}

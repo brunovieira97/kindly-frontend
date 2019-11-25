@@ -10,7 +10,7 @@ const WishList = props => {
       {props.list.description}
       <ul>
         {props.list.wishListItems.map(listItem => (
-          <Item item={listItem} />
+          <Item item={listItem} removeItem={props.removeItem} />
         ))}
       </ul>
     </div>

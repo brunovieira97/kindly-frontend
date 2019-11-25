@@ -6,4 +6,11 @@ export const login = token => {
 };
 export const logout = () => {
   localStorage.removeItem(TOKEN_KEY);
+  localStorage.removeItem("USER");
 };
+
+export const userSession = user => {
+  localStorage.setItem("USER", JSON.stringify(user));
+};
+
+export const getUser = () => JSON.parse(localStorage.getItem("USER"));

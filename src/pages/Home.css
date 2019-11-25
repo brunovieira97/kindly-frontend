@@ -1,0 +1,36 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /*margin: 0 15%;*/
+  margin: 0 5%;
+  height: 100vh;
+}
+
+.Home ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+.Home li {
+  list-style-type: none;
+}
+
+.Home-welcome {
+  margin-bottom: 15px;
+}
+
+.Home-recent {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 600px) {
+  .Home {
+    margin-top: 20px;
+    margin: 0 auto;
+  }
+  .Home-recent {
+    flex-direction: column;
+  }
+}

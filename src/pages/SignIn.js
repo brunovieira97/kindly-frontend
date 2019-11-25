@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NavLink, Redirect } from "react-router-dom";
 import "./SignIn.css";
 import logo from "../assets/logo.png";
-import { login, getToken } from "../services/auth";
+import { login, getToken, userSession } from "../services/auth";
 import api from "../services/api";
 
 class SignIn extends Component {
@@ -35,6 +35,10 @@ class SignIn extends Component {
         const response = await api.post("/signin", info);
         login(response.data.token);
         this.setState({ authenticated: true });
+        if (getToken()) {
+          const user = await api.get(`/user/${email}`);
+          userSession(user.data);
+        }
       } catch (err) {
         console.log(err);
         this.setState({

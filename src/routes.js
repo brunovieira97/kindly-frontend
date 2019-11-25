@@ -6,6 +6,7 @@ import SignUpDetails from "./pages/SignUpDetails";
 import SignIn from "./pages/SignIn";
 import NewInstitution from "./pages/NewInstitution";
 import ManageInstitution from "./pages/ManageInstitution";
+import Home from "./pages/Home";
 
 const Routes = withRouter(({ location }) => (
   <div>
@@ -13,9 +14,9 @@ const Routes = withRouter(({ location }) => (
       location.pathname !== "/signIn" &&
       location.pathname !== "/signUpDetails" && <TopMenu />}
     <Switch>
-      <Route exact path="/" component={() => <h1>HELLO THERE!</h1>} />
+      <Route exact path="/" component={() => <Home />} />
       <Route exact path="/signup" component={() => <SignUp />} />
-      <Route exact path="/signin" component={() => <SignIn />} />
+      <Route exact path="/signIn" component={() => <SignIn />} />
       <Route exact path="/signUpDetails" component={() => <SignUpDetails />} />
       <Route
         exact

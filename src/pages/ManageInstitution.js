@@ -28,10 +28,18 @@ const ManageInstitution = props => {
     setWishList(newList);
   };
 
+  const removeItem = item => {
+    const newList = { ...wishlist };
+    newList["wishListItems"] = wishlist.wishListItems.filter(
+      i => i.id !== item.id
+    );
+    setWishList(newList);
+  };
+
   return (
     <div>
       <WishListForm addItem={addItem}></WishListForm>
-      <WishList list={wishlist}></WishList>
+      <WishList list={wishlist} removeItem={removeItem}></WishList>
     </div>
   );
 };

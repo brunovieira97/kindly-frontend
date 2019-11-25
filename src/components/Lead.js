@@ -1,14 +1,16 @@
-import React from 'react';
-import logo from '../assets/logo.png';
+import React from "react";
+import logo from "../assets/logo.png";
 
-import './Lead.css'
+import "./Lead.css";
 
 function Lead() {
   return (
-    <div className='Lead'>
-      <img src={logo} alt='Kindly Logo' className='Lead-img'></img>
+    <div className="Lead">
+      <a href="/">
+        <img src={logo} alt="Kindly Logo" className="Lead-img"></img>
+      </a>
     </div>
-  )
+  );
 }
 
 export default Lead;
