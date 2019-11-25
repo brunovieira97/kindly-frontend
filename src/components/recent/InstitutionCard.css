@@ -4,16 +4,25 @@
   align-items: center;
   margin: 0px 5px;
   width: 300px;
-  height: 400px;
+  height: 360px;
   border: 2px solid lightblue;
   margin-bottom: 20px;
   text-align: center;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .InstitutionCard h2 {
   margin: 5px 0px;
+}
+
+.truncate {
+  display: inline-block !important;
+  width: 280px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 
 .InstitutionCard img {

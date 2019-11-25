@@ -29,7 +29,7 @@ const InstitutionCard = props => {
     <div className="InstitutionCard">
       <img src={picture}></img>
       <h2>{props.item.name}</h2>
-      <p>{props.item.description}</p>
+      <p className="truncate">{props.item.description}</p>
     </div>
   );
 };
