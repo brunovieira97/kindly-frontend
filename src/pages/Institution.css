@@ -3,7 +3,7 @@
   flex-flow: column;
   justify-content: flex-start;
   margin: 0 12%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .Institution img {
@@ -32,8 +32,9 @@
 
 @media screen and (max-width: 600px) {
   .Institution {
+    align-content: center;
     justify-content: center;
-    margin-left: 25px;
+    margin: 30px;
   }
 
   .info-container {
@@ -42,6 +43,7 @@
   }
 
   .address-container {
+    margin: 0;
     position: relative;
     margin-left: 0;
   }

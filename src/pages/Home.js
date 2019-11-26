@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import { getUser, isAuthenticated } from "../services/auth";
 import InstitutionCard from "../components/recent/InstitutionCard";
 import api from "../services/api";
-import { Link } from "react-router-dom";
+import { Link, withRouter, Redirect } from "react-router-dom";
 
 import "./Home.css";
 
-const Home = () => {
+const Home = props => {
   const [institutions, setInstitutions] = useState([]);
-
   useEffect(() => {
     const loadData = async () => {
       const response = await api.get("/institution/last3");
@@ -16,6 +15,14 @@ const Home = () => {
     };
     loadData();
   }, []);
+
+  const handleInstitution = () => {
+    if (isAuthenticated()) {
+      window.location = "/newInstitution";
+    } else {
+      window.location = "/signIn";
+    }
+  };
 
   return (
     <div className="Home">
@@ -36,8 +43,9 @@ const Home = () => {
           ))}
         </ul>
       </div>
+      <button onClick={handleInstitution}>Nova Instituição</button>
     </div>
   );
 };
 
-export default Home;
+export default withRouter(Home);

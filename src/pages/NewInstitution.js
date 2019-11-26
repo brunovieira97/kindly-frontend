@@ -3,6 +3,7 @@ import axios from "axios";
 import "./NewInstitution.css";
 import api from "../services/api";
 import { getUser } from "../services/auth";
+import { withRouter } from "react-router-dom";
 
 const NewInstitution = props => {
   const [error, setError] = useState("");
@@ -17,6 +18,7 @@ const NewInstitution = props => {
   const [countryName, setCountryName] = useState("Brasil");
   const [stateName, setStateName] = useState("Rio Grande do Sul");
   const [postalCode, setPostalCode] = useState("");
+  const [CNPJ, setCNPJ] = useState("");
   // const [administrator, setAdministrator] = useState(getUser());
 
   const handleAddress = async () => {
@@ -58,8 +60,7 @@ const NewInstitution = props => {
           name,
           phoneNumber,
           description,
-          administrator,
-          wishlist: {}
+          administrator
         };
         const newInstitution = { ...institution, address };
         await api.post("/institution", newInstitution);
@@ -90,7 +91,14 @@ const NewInstitution = props => {
         </div>
 
         <div className="NewInstitution-form-details">
-          <input type="text" placeholder="CNPJ" name="cnpj"></input>
+          <input
+            type="text"
+            placeholder="CNPJ"
+            name="cnpj"
+            value={CNPJ}
+            name="cnpj"
+            onChange={evt => setCNPJ(evt.target.value)}
+          ></input>
           <input
             type="text"
             placeholder="Telefone"
@@ -169,4 +177,4 @@ const NewInstitution = props => {
   );
 };
 
-export default NewInstitution;
+export default withRouter(NewInstitution);

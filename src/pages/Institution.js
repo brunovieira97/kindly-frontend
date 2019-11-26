@@ -10,15 +10,10 @@ import "./Institution.css";
 
 const Institution = props => {
   const { id } = props.match.params;
+  const [isLoading, setIsLoading] = useState(true);
   const [picture, setPicture] = useState({});
   const [institution, setInstitution] = useState({});
-  const [address, setAddress] = useState({
-    streetName: "",
-    number: "",
-    neighborhoodName: "",
-    cityName: "",
-    postalCode: ""
-  });
+  const [address, setAddress] = useState({});
 
   const randomPic = () => {
     const pic = Math.floor(Math.random() * 3 + 1);
@@ -37,6 +32,7 @@ const Institution = props => {
       const response = await api.get(`/institution/${id}`);
       setInstitution(response.data);
       setAddress({ ...response.data.address });
+      setIsLoading(false);
       setPicture(randomPic());
     };
     fetchData();
@@ -44,19 +40,26 @@ const Institution = props => {
 
   return (
     <div className="Institution">
-      <div className="info-container">
-        <h2>{institution.name}</h2>
-        <img src={picture}></img>
-        <p>{institution.description}</p>
-        <div className="address-container">
-          <h3>Endereço</h3>
-          <p>{`${address.streetName}, ${address.number}`}</p>
-          <p>{`${address.neighborhoodName}, ${address.cityName}`}</p>
-          <p>{`${address.postalCode}`}</p>
-          <h3>Contato</h3>
-          <p>{institution.phoneNumber}</p>
+      {isLoading ? (
+        <div style={{ backgroundColor: "white" }}></div>
+      ) : (
+        <div className="info-container">
+          <h2>{institution.name}</h2>
+          <img src={picture}></img>
+          <p>{institution.description}</p>
+          <div className="address-container">
+            <h3>Endereço</h3>
+            <p>{`${address.streetName}, ${address.number}`}</p>
+            <p>{`${address.neighborhoodName}, ${address.cityName}`}</p>
+            <p>{`${address.postalCode}`}</p>
+            <h3>Contato</h3>
+            <p>{institution.phoneNumber}</p>
+          </div>
+          <div className="wishlist">
+            <WishList />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -1,13 +1,7 @@
 import React from "react";
 
 const Item = props => {
-  console.log(props);
-  return (
-    <li>
-      {`${props.item.donative} - Qtd.: ${props.item.quantity}`}
-      <button onClick={() => props.removeItem(props.item.id)}>Deletar</button>
-    </li>
-  );
+  return <li>{`${props.item.name} - Qtd.: ${props.item.quantity}`}</li>;
 };
 
 export default Item;

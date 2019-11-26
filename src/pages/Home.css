@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: flex-start;
   margin: 0 12%;
-  min-height: 100% !important;
+  min-height: 80vh !important;
 }
 
 .Home ul {
@@ -26,6 +26,18 @@
   justify-content: space-evenly;
 }
 
+.Home button {
+  color: #fff;
+  font-size: 16px;
+  background: #9dc3e5;
+  height: 56px;
+  border: 0;
+  border-radius: 5px;
+  margin-left: 82%;
+  margin-bottom: 20px;
+  width: 15%;
+}
+
 @media screen and (max-width: 600px) {
   .Home {
     margin-top: 20px;
@@ -37,5 +49,11 @@
 
   .Home-welcome {
     margin-bottom: 30px;
+  }
+
+  .Home button {
+    margin-left: 60%;
+    margin-bottom: 20px;
+    width: 30%;
   }
 }
