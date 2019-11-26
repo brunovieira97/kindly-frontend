@@ -1,0 +1,48 @@
+.Institution {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  margin: 0 12%;
+  height: 100vh;
+}
+
+.Institution img {
+  width: 350px;
+  height: 250px;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  width: 520px;
+  text-align: justify;
+}
+
+.address-container {
+  position: absolute;
+  width: 150px;
+  margin-top: 45px;
+  margin-left: 370px;
+}
+
+.address-container p {
+  margin: 0px;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 600px) {
+  .Institution {
+    justify-content: center;
+    margin-left: 25px;
+  }
+
+  .info-container {
+    flex-flow: column wrap;
+    width: auto;
+  }
+
+  .address-container {
+    position: relative;
+    margin-left: 0;
+  }
+}

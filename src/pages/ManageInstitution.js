@@ -37,7 +37,7 @@ const ManageInstitution = props => {
   };
 
   return (
-    <div>
+    <div classNam="ManageInstitution">
       <WishListForm addItem={addItem}></WishListForm>
       <WishList list={wishlist} removeItem={removeItem}></WishList>
     </div>

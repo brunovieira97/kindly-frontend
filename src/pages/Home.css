@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: flex-start;
   margin: 0 12%;
-  height: 100vh;
+  min-height: 100% !important;
 }
 
 .Home ul {

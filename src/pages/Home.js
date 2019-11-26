@@ -29,7 +29,7 @@ const Home = () => {
         <ul>
           {institutions.map((inst, i) => (
             <li key={i}>
-              <Link to={{ pathname: "/institution", institution: inst }}>
+              <Link to={`/institution/${inst.id}`}>
                 <InstitutionCard item={inst} pic={i + 1} />
               </Link>
             </li>

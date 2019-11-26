@@ -3,17 +3,9 @@
   height: 60px;
   width: 100%;
   border-top: 1px solid black;
+  bottom: 0;
 }
 
 .Footer p {
   padding: 0px 20px;
-}
-
-@media screen and (max-width: 600px) {
-  .Footer {
-    height: 60px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
 }

@@ -20,7 +20,7 @@ const Routes = withRouter(({ location }) => (
       <Route exact path="/signup" component={() => <SignUp />} />
       <Route exact path="/signIn" component={() => <SignIn />} />
       <Route exact path="/signUpDetails" component={() => <SignUpDetails />} />
-      <Route exact path="/institution" component={() => <Institution />} />
+      <Route exact path="/institution/:id" component={() => <Institution />} />
       <Route
         exact
         path="/newInstitution"
