@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import SignUp from "./pages/SignUp";
 import SignUpDetails from "./pages/SignUpDetails";
 import SignIn from "./pages/SignIn";
+import Institution from "./pages/Institution";
 import NewInstitution from "./pages/NewInstitution";
 import ManageInstitution from "./pages/ManageInstitution";
 import Home from "./pages/Home";
@@ -19,6 +20,7 @@ const Routes = withRouter(({ location }) => (
       <Route exact path="/signup" component={() => <SignUp />} />
       <Route exact path="/signIn" component={() => <SignIn />} />
       <Route exact path="/signUpDetails" component={() => <SignUpDetails />} />
+      <Route exact path="/institution" component={() => <Institution />} />
       <Route
         exact
         path="/newInstitution"

@@ -4,13 +4,14 @@
   align-items: center;
   margin: 0px 5px;
   width: 300px;
-  height: 360px;
+  height: 400px;
   border: 2px solid lightblue;
   margin-bottom: 20px;
   text-align: center;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border-radius: 8px;
   cursor: pointer;
+  color: black;
 }
 
 .InstitutionCard h2 {
