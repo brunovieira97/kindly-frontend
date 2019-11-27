@@ -8,10 +8,12 @@ import "./Home.css";
 
 const Home = props => {
   const [institutions, setInstitutions] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     const loadData = async () => {
       const response = await api.get("/institution/last3");
       setInstitutions(response.data);
+      setIsLoaded(true);
     };
     loadData();
   }, []);
@@ -43,7 +45,9 @@ const Home = props => {
           ))}
         </ul>
       </div>
-      <button onClick={handleInstitution}>Nova Instituição</button>
+      {isLoaded && (
+        <button onClick={handleInstitution}>Nova Instituição</button>
+      )}
     </div>
   );
 };
