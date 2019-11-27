@@ -43,17 +43,20 @@ const Institution = props => {
       {isLoading ? (
         <div style={{ backgroundColor: "white" }}></div>
       ) : (
-        <div className="info-container">
-          <h2>{institution.name}</h2>
-          <img src={picture}></img>
-          <p>{institution.description}</p>
-          <div className="address-container">
-            <h3>Endereço</h3>
-            <p>{`${address.streetName}, ${address.number}`}</p>
-            <p>{`${address.neighborhoodName}, ${address.cityName}`}</p>
-            <p>{`${address.postalCode}`}</p>
-            <h3>Contato</h3>
-            <p>{institution.phoneNumber}</p>
+        <div>
+          <div className="info-container">
+            <h2>{institution.name}</h2>
+            <img src={picture}></img>
+            <p>{institution.description}</p>
+            <div className="address-container">
+              <h3>Endereço</h3>
+              <p>{`${address.streetName}, ${address.number}`}</p>
+              <p>{`${address.neighborhoodName}, ${address.cityName}`}</p>
+              <p>{`${address.postalCode}`}</p>
+              <h3>Contato</h3>
+              <p>{institution.phoneNumber}</p>
+              <br />
+            </div>
           </div>
           <div className="wishlist">
             <WishList />

@@ -1,23 +1,34 @@
-import React, { Component } from 'react'
+import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
+import api from "../services/api";
 
-import './SearchBar.css'
+import "./SearchBar.css";
 
-class SearchBar extends Component {
-  constructor(props) {
-    super(props)
+const SearchBar = props => {
+  const [search, setSearch] = useState("");
 
-    this.state = {
-
+  const handleSubmit = async evt => {
+    evt.preventDefault();
+    try {
+      const response = await api.get(`/institution/search?name=${search}`);
+    } catch (e) {
+      setSearch("");
     }
-  }
-  render() {
-    return (
-      <div class-name="SearchBar">
-        <input type="text" className="SearchBar-input" placeholder="Pesquisar..." />
-      </div>
-    )
-  }
+  };
 
-}
+  return (
+    <div class-name="SearchBar">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          className="SearchBar-input"
+          placeholder="Pesquisar..."
+          value={search}
+          onChange={evt => setSearch(evt.target.value)}
+        />
+      </form>
+    </div>
+  );
+};
 
-export default SearchBar;
+export default withRouter(SearchBar);

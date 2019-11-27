@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import Item from "./Item";
 
+import "./WishList.css";
+
 const WishList = props => {
   const initialValue = {
-    description: "Necessidades da semana. Qualquer doação é bem vinda.",
+    description:
+      "Necessidades da semana de 25 a 30 de Novembro. Qualquer doação é bem vinda.",
     items: [
       { name: "Papel Higiênico", quantity: "40 rolos" },
       { name: "Sabote", quantity: "10 pacotes" },
@@ -15,10 +18,10 @@ const WishList = props => {
   const [list, setList] = useState(initialValue);
 
   return (
-    <div>
+    <div className="WishList">
       <h2>Lista de Necessidades</h2>
       <br />
-      {list.description}
+      <p>{list.description}</p>
       <ul>
         {list.items.map(listItem => (
           <Item item={listItem} />

@@ -2,8 +2,8 @@
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
-  margin: 0 12%;
-  min-height: 100vh;
+  margin: 2% 12%;
+  min-height: 80vh;
 }
 
 .Institution img {
@@ -30,11 +30,20 @@
   font-size: 12px;
 }
 
+.wishlist {
+  display: flex;
+  flex-flow: wrap;
+  width: 400px;
+  margin-top: -443px;
+  margin-left: 600px;
+}
+
 @media screen and (max-width: 600px) {
   .Institution {
     align-content: center;
     justify-content: center;
-    margin: 30px;
+    width: 350px;
+    margin: auto;
   }
 
   .info-container {
@@ -43,8 +52,15 @@
   }
 
   .address-container {
+    width: auto;
     margin: 0;
     position: relative;
     margin-left: 0;
+  }
+
+  .wishlist {
+    width: 350px;
+    margin: 0;
+    position: relative;
   }
 }
