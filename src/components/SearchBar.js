@@ -1,19 +1,29 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
 import api from "../services/api";
+
+import InstitutionList from "./InstitutionList";
 
 import "./SearchBar.css";
 
 const SearchBar = props => {
   const [search, setSearch] = useState("");
+  const [isSubmited, setIsSubmited] = useState(false);
+  const [institutions, setInstitutions] = useState([]);
 
   const handleSubmit = async evt => {
     evt.preventDefault();
     try {
       const response = await api.get(`/institution/search?name=${search}`);
+      setInstitutions(response.data);
+      setIsSubmited(true);
     } catch (e) {
       setSearch("");
     }
+  };
+
+  const handleFocus = () => {
+    setIsSubmited(false);
+    setSearch("");
   };
 
   return (
@@ -25,10 +35,12 @@ const SearchBar = props => {
           placeholder="Pesquisar..."
           value={search}
           onChange={evt => setSearch(evt.target.value)}
+          onMouseOver={handleFocus}
         />
+        {isSubmited && <InstitutionList items={institutions} />}
       </form>
     </div>
   );
 };
 
-export default withRouter(SearchBar);
+export default SearchBar;
